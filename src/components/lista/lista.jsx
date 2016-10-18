@@ -24,25 +24,44 @@ export default class Lista extends React.Component{
 		nameRef.on('value', (snapshot) => { 
 			// console.log(snapshot.val()) 
 		  this.setState({
-		    datos: this.state.datos.concat(snapshot.val());
+		    datos: snapshot.val()
+		    
 		  })
+
 		});
+
 
 	}
 	render(){
+		console.log(this.state.datos)
 		return(
 			<div className="row"><br/>
-				<div className="panel panel-default">
-				  <div className="panel-body">
-				    <div className="col-lg-6">
-				    	<span className="glyphicon glyphicon-user" aria-hidden="true"></span>
-				    	&nbsp;&nbsp;
-				    	{this.state.name}
-				    </div>
-				    <div className="col-lg-4 text-right"><span className="glyphicon glyphicon-earphone" aria-hidden="true"></span></div>
-				    <div className="col-lg-2 text-right"><b>96 525 555 555</b></div>
-				  </div>
-				</div>
+
+				{
+
+					for( const key in this.state.datos ) {
+					  console.log( key + '->' + this.state.datos[key] )  // 'foo->hello', 'bar->world'
+					}
+		    // 		this.state.datos.map((dato, key) => {
+		    // 			var k = Object.keys(dato)[0];
+		    // 			// console.log(key)
+
+						// return(
+						// 	<div className="panel panel-default" key={key}>
+						// 	  <div className="panel-body">
+						// 	    <div className="col-lg-6">
+						// 	    	<span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+						// 	    	&nbsp;&nbsp;
+						// 	    	{dato[k].nombre}
+						// 	    </div>
+						// 	    <div className="col-lg-4 text-right"><span className="glyphicon glyphicon-earphone" aria-hidden="true"></span></div>
+						// 	    <div className="col-lg-2 text-right"><b>{dato[k].telefono}</b></div>
+						// 	  </div>
+						// 	</div>
+						// )
+		    // 		})
+		    	}
+				
 			</div>
 		)
 	}
