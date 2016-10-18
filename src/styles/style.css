@@ -1,0 +1,12 @@
+.init{
+	/*background: red;*/
+
+	margin-bottom: 30px;
+}
+.form-group{
+	padding: 3px;
+}
+.panel-body{
+	background: #2980B9;
+	font-size: 12pt
+}
