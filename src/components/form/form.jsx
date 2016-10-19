@@ -28,6 +28,7 @@ export default class Form extends React.Component{
 	render(){
 		return(
 			<div className="row">
+            <div className="col-lg-10 col-lg-offset-3">
 				<h4>Nuevo Teléfono</h4>
 				<form className="form-inline">
 				  <div className="form-group">
@@ -38,6 +39,7 @@ export default class Form extends React.Component{
 				  </div>
 				  <button type="button" onClick={this.setData.bind(this)} className="btn btn-success">Guardar</button>
 				</form>
+            </div>
 			</div>
 		)
 	}
