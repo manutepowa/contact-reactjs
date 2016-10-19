@@ -6,11 +6,38 @@
 .form-group{
 	padding: 3px;
 }
+.form-group input{
+    background: transparent;
+    color: white;
+}
+form button{
+    background: #2C3E50;
+    color: white;
+    border: 1px solid #ccc !important;
+}
+form button:hover{
+    color: #2980B9 !important;
+    border: 1px solid #2980B9 !important;
+}
+form button:focus { color: white !important; }
+hr{
+    border: 1px solid #2980B9 !important;
+}
 .panel-body{
 	background: #2980B9;
 	font-size: 12pt
 }
 .panel{
-    background: #2980B9;
-    
+    background: #2980B9;   
+}
+
+.delete{
+    font-size: 12pt;
+    color:red;
+    margin-top: 15px;
+}
+.delete span:hover{
+    color:black;
+    cursor: pointer;
+
 }

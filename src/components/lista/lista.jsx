@@ -19,6 +19,10 @@ export default class Lista extends React.Component{
 			datos: []
 		}
 	}
+    deleteTel(id){
+        const nameRef = firebase.database().ref().child('contactos').child(id).remove();
+        console.log("Eliminado")
+    }
 	componentWillMount(){
         
 		const nameRef = firebase.database().ref().child('contactos').orderByChild('nombre')
@@ -28,6 +32,7 @@ export default class Lista extends React.Component{
           snapshot.forEach((data) => {
             // console.log(data.val());
             todos.push({
+                key: data.key,
                 nombre: data.val().nombre,
                 tel: data.val().telefono
             }); 
@@ -44,23 +49,26 @@ export default class Lista extends React.Component{
 		// console.log(this.state.datos)
 		return(
 			<div className="row"><br/>
-
-				
                 {
                     this.state.datos.map((dato, key) => {
-                        console.log(key)
+                        // console.log(key)
                         return(
-                             <div className="panel panel-default col-lg-10 col-lg-offset-1" key={key}>
+                            <div>
+                             <div className="panel panel-default col-xs-10 col-xs-offset-1" key={key}>
                                <div className="panel-body">
-                                 <div className="col-lg-6">
+                                 <div className="col-xs-6">
                                      <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
                                      &nbsp;&nbsp;
                                      {dato.nombre}
                                  </div>
-                                 <div className="col-lg-4 text-right"><span className="glyphicon glyphicon-earphone" aria-hidden="true"></span></div>
-                                 <div className="col-lg-2 text-right"><b>{dato.tel}</b></div>
+                                 <div className="col-xs-4 text-right"><span className="glyphicon glyphicon-earphone" aria-hidden="true"></span></div>
+                                 <div className="col-xs-2 text-right"><b>{dato.tel}</b></div>
                                </div>
                              </div>
+                             <div className="delete col-xs-1" key={dato.key}>
+                                <span onClick={this.deleteTel.bind(this,dato.key)}>X</span>
+                            </div>
+                            </div>
                         )
                     })
                     
