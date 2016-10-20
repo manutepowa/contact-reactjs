@@ -32,12 +32,16 @@ hr{
 }
 
 .delete{
-    font-size: 12pt;
+    font-size: 15pt;
     color:red;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 .delete span:hover{
     color:black;
     cursor: pointer;
 
+}
+.jumbotron{
+    background: transparent;
+    /*height: 300px;*/
 }
