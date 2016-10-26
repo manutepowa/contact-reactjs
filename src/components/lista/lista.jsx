@@ -1,17 +1,8 @@
 import React from 'react';
-// import firebase from '../../../config/conf-firebase.js';
+import '../../../config/conf-firebase.js';
 
 import firebase from 'firebase';
 
-const config = {
-	apiKey: "AIzaSyDEVee0ocJ4OStNHptgwaSVIPETXpQ6wuE",
-    authDomain: "contactos-cd456.firebaseapp.com",
-    databaseURL: "https://contactos-cd456.firebaseio.com",
-    storageBucket: "",
-    messagingSenderId: "312126640610"
-};
-
-firebase.initializeApp(config);
 export default class Lista extends React.Component{
 	constructor(){
 		super();
@@ -46,23 +37,25 @@ export default class Lista extends React.Component{
 
 	}
 	render(){
-		// console.log(this.state.datos)
+		
         if (this.state.datos.length == 0) {
+            console.log("Antes del if")
             return(
                 <div className="jumbotron text-center">
                   <h1>Cargando datos!</h1>
                   
                 </div>
             )
-        } 
+        } else{
+        console.log("Despues del if")
 		return(
 			<div className="row"><br/>
                 {
                     this.state.datos.map((dato, key) => {
                         // console.log(key)
                         return(
-                            <div>
-                             <div className="panel panel-default col-xs-10 col-xs-offset-1" key={key}>
+                            <div key={key}>
+                             <div className="panel panel-default col-xs-10 col-xs-offset-1">
                                <div className="panel-body">
                                <div className="col-xs-1"><span className="glyphicon glyphicon-user" aria-hidden="true"></span></div>
                                  <div className="col-xs-7">
@@ -72,7 +65,7 @@ export default class Lista extends React.Component{
                                  <div className="col-xs-1 text-right"><b>{dato.tel}</b></div>
                                </div>
                              </div>
-                             <div className="delete col-xs-1" key={dato.key}>
+                             <div className="delete col-xs-1">
                                 <span onClick={this.deleteTel.bind(this,dato.key)}>X</span>
                             </div>
                             </div>
@@ -85,7 +78,7 @@ export default class Lista extends React.Component{
 				
 			</div>
                 
-		)
+		)}
 	}
 }
 

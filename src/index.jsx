@@ -4,10 +4,7 @@ import Form from './components/form/form.jsx';
 import Lista from './components/lista/lista.jsx';
 import './styles/style.css';
 class App extends Component {
-    constructor() {
-      super();
-    }
- 
+    
     render() {
         return ( 
             <div>
