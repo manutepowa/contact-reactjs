@@ -1,13 +1,16 @@
 import React from 'react';
 import '../../../config/conf-firebase.js';
-
+import SearchInput, {createFilter} from 'react-search-input';
 import firebase from 'firebase';
+
+const KEYS_TO_FILTERS = ['nombre','tel'];
 
 export default class Lista extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			datos: []
+			datos: [],
+            searchTerm: ''
 		}
 	}
     deleteTel(id){
@@ -30,16 +33,18 @@ export default class Lista extends React.Component{
           })
 		  
             this.setState({
-                datos: todos,
+                datos: todos
             })
 		});
 
 
 	}
+    searchUpdated (term) {
+        this.setState({searchTerm: term})
+    }
 	render(){
-		
+		const filteredPhones = this.state.datos.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         if (this.state.datos.length == 0) {
-            console.log("Antes del if")
             return(
                 <div className="jumbotron text-center">
                   <h1>Cargando datos!</h1>
@@ -47,11 +52,11 @@ export default class Lista extends React.Component{
                 </div>
             )
         } else{
-        console.log("Despues del if")
 		return(
 			<div className="row"><br/>
+                <SearchInput placeholder="Buscador" className="search-input form-group my-input text-center" onChange={this.searchUpdated.bind(this)} />
                 {
-                    this.state.datos.map((dato, key) => {
+                    filteredPhones.map((dato, key) => {
                         // console.log(key)
                         return(
                             <div key={key}>

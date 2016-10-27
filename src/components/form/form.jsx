@@ -17,7 +17,7 @@ export default class Form extends React.Component{
             console.log(nombre.value) 
 
             firebase.database().ref().child('contactos').push({
-                nombre: nombre.value,
+                nombre: nombre.value.toUpperCase(),
                 telefono: telefono.value
             });
 

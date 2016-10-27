@@ -6,9 +6,18 @@
 .form-group{
 	padding: 3px;
 }
-.form-group input{
+.form-group input,.my-input input{
     background: transparent;
     color: white;
+}
+.my-input input{
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 form button{
     background: #2C3E50;
