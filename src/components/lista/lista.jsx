@@ -1,7 +1,8 @@
 import React from 'react';
-import '../../../config/conf-firebase.js';
 import SearchInput, {createFilter} from 'react-search-input';
-import firebase from 'firebase';
+// import firebase from 'firebase';
+// import '../../../config/conf-firebase.js';
+import firebase from '../../../config/conf-firebase.js';
 
 const KEYS_TO_FILTERS = ['nombre','tel'];
 
@@ -60,7 +61,7 @@ export default class Lista extends React.Component{
                         // console.log(key)
                         return(
                             <div key={key}>
-                             <div className="panel panel-default col-xs-10 col-xs-offset-1">
+                             <div className="panel panel-default col-xs-11 col-xs-offset-0 col-sm-6 col-sm-offset-3">
                                <div className="panel-body">
                                <div className="col-xs-1"><span className="glyphicon glyphicon-user" aria-hidden="true"></span></div>
                                  <div className="col-xs-7">

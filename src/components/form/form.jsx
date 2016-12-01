@@ -1,7 +1,8 @@
 import React from 'react';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 import swal from 'sweetalert';
 import 'sweetalert/dist/sweetalert.css';
+import firebase from '../../../config/conf-firebase.js';
 
 
 export default class Form extends React.Component{

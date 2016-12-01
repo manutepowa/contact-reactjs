@@ -34,7 +34,8 @@ hr{
 }
 .panel-body{
 	background: #2980B9;
-	font-size: 12pt
+	font-size: 11pt;
+    padding: 10px;
 }
 .panel{
     background: #2980B9;   
